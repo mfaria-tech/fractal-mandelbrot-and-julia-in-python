@@ -7,7 +7,11 @@
 **Desenhando Conjunto de Mandelbrot em Python**
 ===
 
+<div align="center">
 
+![Fractal Mandelbrot Set, low density][img-fractal-low-density]
+
+</div>
 
 
 ### REFERÊNCIAS
@@ -22,3 +26,5 @@
 [link-oprogramador]: https://github.com/oprogramadorreal/Mandelbrot
 [link-realpython]: https://realpython.com/mandelbrot-set-python/
 [link-wiki]: https://en.wikipedia.org/wiki/Mandelbrot_set
+
+[img-fractal-low-density]: img/fractal_low_density.png

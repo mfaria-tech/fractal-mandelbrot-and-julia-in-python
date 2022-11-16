@@ -5,6 +5,12 @@
 ### AUTOR       : MARCUS FARIA
 ### DATE        : 03.11.2022
 ###
+### DESCRIPTION :
+###
+### FOLLOW ME:
+###     GITHUB (curr-account) --> https://github.com/mfaria-tech
+###     GITHUB (old-account) --> https://github.com/Marcus-Faria
+###     LINKEDIN --> https://www.linkedin.com/in/marcus-v-faria-4a2117213/
 ### ===============================================
 
 
