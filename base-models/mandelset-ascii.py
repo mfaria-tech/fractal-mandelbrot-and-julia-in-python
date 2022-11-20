@@ -32,26 +32,52 @@ def formula(c, n_iterations):
         #print(f"z[{_}] = {z}")
         z = z ** 2 + c
 
-
     # By definition, considering that the sequence will
     # be greater than four interactions, if the last value
     # of "z" for the iteration is greater than 2, it does
     # not belong to the mandelbrot set.
-    return abs(z) <= 2
+    return abs(2) <= 2
 
 
 
-def c_matrix(x0, y0, x, y):
-    return
+def c_matrix(xi, yi, xf, yf, d):
+    # 'y' axis: referring to the set of imaginary numbers
+    # 'x' axis: referring to the set of real numbers
+    sx = int((xf - xi) * d) # Total Sample 'x'
+    sy = int((yf - yi) * d) # Total Sample 'y'
 
 
-def get_members(c, n_iterations):
-    mask = formula(c, n_iterations)
-    return c[mask]
+    matrix = []
+
+    for i in range(sx):
+        x = xi + (i * (xf - xi) / (sx - 1))
+        
+        for j in range(sy):
+            # Next Samples
+            y = yi + (j * (yf - yi) / (sy - 1))
+
+            matrix.append(x + y*1j)
+    
+    #print(matrix)
+    return matrix
 
 
-members = get_members(-1, n_iterations=10)
-print(members)
-print(formula(-1, n_iterations=10))
 
-#"Ж"
+def gen_mandelset():
+    density = 100
+
+    c = c_matrix(-2, .5, -1.5, 1.5, density)
+
+    # for i in c:
+    #     belongs = formula(c, n_iterations=20)
+
+    #     # Draw Mandelbrot set ASCII
+    #     if belongs == True:
+    #         print("Ж", end='')
+    #     else:
+    #         print(".", end='')
+
+    return True
+
+
+gen_mandelset()
