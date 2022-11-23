@@ -3,7 +3,7 @@
 ### =======================================================================
 ### TITLE       : MANDELBROT SET - ASCII EXIBITION
 ### AUTOR       : MARCUS FARIA
-### DATE        : 15.11.2022
+### DATE        : 20.11.2022
 ###
 ### DESCRIPTION :
 ###     Model 1, display of mandelbrot set with ascii table
@@ -16,68 +16,35 @@
 
 
 ## ========================================================================
+##  PSEUDOCODE - ESCAPE TIME ALGORITHM
+##
+##  For each pixel (Px, Py) on the screen, do:
+##  {
+##      x0 = scaled x coordinate of pixel (scaled to lie in the Mandelbrot X scale (-2.5, 1))
+##      y0 = scaled y coordinate of pixel (scaled to lie in the Mandelbrot Y scale (-1, 1))
+##      x = 0.0
+##      y = 0.0
+##      iteration = 0
+##      max_iteration = 1000
+##      while ( x*x + y*y < 2*2  AND  iteration < max_iteration )
+##      {
+##          xtemp = x*x - y*y + x0
+##          y = 2*x*y + y0
+##          x = xtemp
+##          iteration = iteration + 1
+##      }
+##      color = palette[iteration]
+##      plot(Px, Py, color)
+##  }
+## ========================================================================
+
+
+## ========================================================================
 ##  To decide whether some complex number, c , belongs to the
 ##  Mandelbrot set, plug that number into the formula:
 ##
 ##      zn = z(n-1)^2 +c
 ##
-def formula(c, n_iterations):
-    # The first element, z0, is always equal to zero.
-    z = 0
+mang = lambda a, b: a*a + b*b
 
-
-    # Generate the first "n" iterations to validate
-    # if the sequence belongs to the set
-    for _ in range(n_iterations):
-        #print(f"z[{_}] = {z}")
-        z = z ** 2 + c
-
-    # By definition, considering that the sequence will
-    # be greater than four interactions, if the last value
-    # of "z" for the iteration is greater than 2, it does
-    # not belong to the mandelbrot set.
-    return abs(2) <= 2
-
-
-
-def c_matrix(xi, yi, xf, yf, d):
-    # 'y' axis: referring to the set of imaginary numbers
-    # 'x' axis: referring to the set of real numbers
-    sx = int((xf - xi) * d) # Total Sample 'x'
-    sy = int((yf - yi) * d) # Total Sample 'y'
-
-
-    matrix = []
-
-    for i in range(sx):
-        x = xi + (i * (xf - xi) / (sx - 1))
-        
-        for j in range(sy):
-            # Next Samples
-            y = yi + (j * (yf - yi) / (sy - 1))
-
-            matrix.append(x + y*1j)
-    
-    #print(matrix)
-    return matrix
-
-
-
-def gen_mandelset():
-    density = 100
-
-    c = c_matrix(-2, .5, -1.5, 1.5, density)
-
-    # for i in c:
-    #     belongs = formula(c, n_iterations=20)
-
-    #     # Draw Mandelbrot set ASCII
-    #     if belongs == True:
-    #         print("Ж", end='')
-    #     else:
-    #         print(".", end='')
-
-    return True
-
-
-gen_mandelset()
+#def mandset():
